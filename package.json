@@ -1,0 +1,13 @@
+{
+  "name": "micropy-stack",
+  "version": "1.0.0",
+  "description": "Micropy Serverless Stack",
+  "main": "index.js",
+  "repository": "https://github.com/BradenM/micropy-stack",
+  "author": "Braden Mars",
+  "license": "MIT",
+  "dependencies": {
+    "serverless": "^1.45.1",
+    "serverless-s3-sync": "^1.8.0"
+  }
+}
