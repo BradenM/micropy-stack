@@ -1,0 +1,39 @@
+Resources:
+  StubBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: ${self:service}-stubs-${self:custom.stage}
+      CorsConfiguration:
+        CorsRules:
+          - AllowedOrigins:
+              - '*'
+            AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - GET
+              - PUT
+              - POST
+              - DELETE
+              - HEAD
+            MaxAge: 3000
+      AccessControl: PublicRead
+
+  StubBucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action:
+              - 's3:GetObject'
+            Resource: ${cf:${self:custom.stack}.StubBucketArn}/*
+      Bucket:
+        Ref: StubBucket
+Outputs:
+  StubBucketName:
+    Value:
+      Ref: StubBucket
+  StubBucketArn:
+    Value: { Fn::GetAtt: [StubBucket, Arn] }

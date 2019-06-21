@@ -1,0 +1,16 @@
+tenant: bradenm
+app: micropy-stack
+service: micropy
+
+provider:
+  name: aws
+  stage: dev
+  region: us-east-1
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  stack: micropy-${self:custom.stage}
+
+resources:
+  # Stubs S3 Bucket
+  - ${file(resources/s3-bucket.yml)}
