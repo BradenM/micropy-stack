@@ -1,6 +1,8 @@
 # Serverless directories
 .serverless
 node_modules
+# S3 Sync
+stubs
 
 # Created by https://www.gitignore.io/api/visualstudiocode,python,node
 # Edit at https://www.gitignore.io/?templates=visualstudiocode,python,node
