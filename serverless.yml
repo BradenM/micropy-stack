@@ -16,8 +16,7 @@ custom:
   # ==== S3 Sync ====
   s3Sync:
     - bucketName: ${cf:${self:custom.stack}.StubBucketName}
-      bucketPrefix: packages/
-      localDir: stubs/packages
+      localDir: stubs
 
 resources:
   # Stubs S3 Bucket
